@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Traversing DOM</title>
+	<script type="text/javascript">
+		function traverser()
+		{
+			var all=document.querySelectorAll("*");
+			var i=0;
+			while(i<all.length)
+			{
+				if(all[i].hasAttribute('tmf_bind'))
+				{
+					alert("ID "+all[i].id+" value "+all[i].getAttribute('tmf_bind'));
+				}
+				i++;
+			}
+		}
+	</script>
+</head>
+<body>
+<form id="myForm">
+	<table>
+		<tr>
+			<td>Roll Number</td>
+			<td>
+				<input type="number" name="rollNumber" id="rollNumber" tmf_bind="a">
+			</td>
+		</tr>
+		<tr>
+			<td>Name</td>
+			<td>
+				<input type="text" name="name" id="name">
+			</td>
+		</tr>
+		<tr>
+			<td>City</td>
+			<td>
+				<select id="city" name="city" tmf_bind="b">
+					<option value='-1'>&lt;Select City&gt;</option>
+<option value='101'>Ujjain</option>
+<option value='102'>Dewas</option>
+<option value='103'>Indore</option>
+<option value='104'>Delhi</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Gender</td>
+			<td><input type='radio' value='M' id='male' name='gender'> Male
+&nbsp;&nbsp;&nbsp;&nbsp;<input type='radio' value='F' id='female' name='gender'> Female</td>
+		</tr>
+		<tr>
+			<td>Is Indian?</td>
+			<td><input type="checkbox" name="indian" id="indian" tmf_bind="c"></td>
+		</tr>
+		<tr>
+			<td colspan="2"><button type="button" onclick="traverser()">CLICK ME</button></td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>
